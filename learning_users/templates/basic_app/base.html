@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <div class="">
+        <ul>
+          <li><a href="{% url 'index' %}">Home index</a></li>
+          <li><a href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a href="{% url 'basic_app:register' %}">Register</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Login</a></li>
+
+          {% else %}
+          <li><a href="{% url 'basic_app:login' %}">Login</a></li>
+
+          {% endif %}
+
+          
+          <li><a href="{% url 'basic_app:org_base' %}">ORG</a></li>
+          <li><a href="{% url 'basic_app:orgname' %}">Orgname</a></li>
+          <li><a href="{% url 'basic_app:Team_dic' %}">Team</a></li>
+          <li><a href="{% url 'basic_app:agile' %}">Agile</a></li>
+          <li><a href="{% url 'basic_app:emp' %}">EMP</a></li>
+
+
+
+        </ul>
+      </div>
+    </nav>
+
+
+
+    <div class="">
+      {% block body_block %}
+      <a href="basic_app/org"> ORGANIZATION </A>
+      {% endblock %}
+
+    </div>
+  </body>
+</html>
